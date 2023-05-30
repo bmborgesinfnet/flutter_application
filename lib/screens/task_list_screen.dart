@@ -28,6 +28,8 @@ class _TaskListScreenState extends State<TaskListScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        splashColor: Colors.orangeAccent,
         child: const Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).pushNamed(

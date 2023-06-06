@@ -17,16 +17,16 @@ class App extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => TarefaProvider(),
       child: MaterialApp(
-        title: 'Aplicativo de cadastro de tarefas',
+        title: 'Cadastro de Tarefas',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.orange,
         ),
         // home: const Listagem(),
         debugShowCheckedModeBanner: false,
         routes: {
-          Rotas.LISTAGEM_TAREFAS: (context) => const Listagem(),
-          Rotas.CADASTRAR_TAREFA: (context) => const Cadastrar(),
-          Rotas.EDITAR_TAREFA: (context) => Editar(),
+          Rotas.LIST_TASK: (context) => const Listagem(),
+          Rotas.CREATE_TASK: (context) => const Cadastrar(),
+          Rotas.EDIT_TASK: (context) => Editar(),
         }
 
       ),

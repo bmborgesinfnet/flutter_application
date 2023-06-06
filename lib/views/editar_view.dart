@@ -38,11 +38,12 @@ class _EditarState extends State<Editar> {
 
     return MaterialApp(
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.orange,
         ),
         home: Scaffold(
           appBar: AppBar(
             title: const Text("Editando tarefa"),
+            foregroundColor: Colors.white,
           ),
           body:
           Container(
@@ -97,7 +98,11 @@ class _EditarState extends State<Editar> {
                         );
                       }, child: const Text("Deletar")),
                       const SizedBox(width: 16),
-                      ElevatedButton(onPressed: () {
+                    ],),
+                ],)
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+              onPressed: () {
                         if (controllerTarefa.text == "") {
                           showDialog(
                             context: context,
@@ -117,12 +122,12 @@ class _EditarState extends State<Editar> {
                           tarefaEditando.longitude = longitude;
                           tarefaEditando.latitude = latitude;
                           tarefaProvider.listaTarefas[index] = tarefaEditando;
-                          Navigator.pushNamedAndRemoveUntil(context, Rotas.LISTAGEM_TAREFAS, (route) => false);
+                          Navigator.pushNamedAndRemoveUntil(context, Rotas.LIST_TASK, (route) => false);
                         }
-                      }, child: const Text("Salvar")
-                      ),
-                    ],),
-                ],)
+                      },
+              backgroundColor: Colors.green,
+              //tooltip: 'Adicionar nova tarefa',
+              label: Icon(Icons.save, color: Colors.white),
           ),
         )
     );

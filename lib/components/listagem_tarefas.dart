@@ -11,12 +11,6 @@ class ListagemTarefas extends StatelessWidget {
   Widget build(BuildContext context) {
     final _tarefas = Provider.of<TarefaProvider>(context);
 
-    // List<Widget> _gerarListaProdutos() {
-    //   return _tarefas.listaTarefas
-    //       .map((tarefa) => ListagemTarefasItem(tarefa))
-    //       .toList();
-    // }
-
     List<Widget> _gerarListaProdutos() {
       return _tarefas.listaTarefas.asMap().entries.map((valor) {
         return ListagemTarefasItem(valor.value, valor.key);
@@ -31,7 +25,7 @@ class ListagemTarefas extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Center(
-                child: Text("Não há tarefas cadastradas"),
+                child: Text("Nao Foi localizada nenhuma tarefa cadastrada"),
               )
             ],
           );

@@ -12,9 +12,10 @@ class Listagem extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Listagem de tarefas"),
+        foregroundColor: Colors.white,
       ),
       body: const ListagemTarefas(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: const BotaoAdicionarTarefa()
       );
   }

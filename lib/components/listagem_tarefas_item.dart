@@ -18,7 +18,7 @@ class ListagemTarefasItem extends StatelessWidget {
     editarTarefa() {
       _tarefas.tarefaEditando = tarefa;
       _tarefas.indexEditando = index;
-      Navigator.of(context).pushNamed(Rotas.EDITAR_TAREFA);
+      Navigator.of(context).pushNamed(Rotas.EDIT_TASK);
     }
 
     return Card(

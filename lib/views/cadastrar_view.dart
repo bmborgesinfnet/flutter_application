@@ -27,11 +27,12 @@ class _CadastrarState extends State<Cadastrar> {
 
     return MaterialApp(
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.orange,
         ),
         home: Scaffold(
           appBar: AppBar(
             title: const Text("Crie uma nova tarefa"),
+            foregroundColor: Colors.white,
           ),
           body:
           Container(
@@ -63,8 +64,12 @@ class _CadastrarState extends State<Cadastrar> {
                       Navigator.pop(context);
                     }, child: const Text("Cancelar")),
                     const SizedBox(width: 16),
-                    ElevatedButton(onPressed: () {
-                      if (controllerTarefa.text == "") {
+                  ],)
+                ],)
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+              onPressed: () {
+                      if (controllerTarefa.text.length == 0) {
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -85,9 +90,10 @@ class _CadastrarState extends State<Cadastrar> {
                                 builder: (context) => const Listagem()),
                                 (Route<dynamic> route) => false);
                       }
-                    }, child: const Text("Cadastrar tarefa")),
-                  ],)
-                ],)
+                    },
+              backgroundColor: Colors.green,
+              //tooltip: 'Adicionar nova tarefa',
+              label: Icon(Icons.save, color: Colors.white),
           ),
         )
     );

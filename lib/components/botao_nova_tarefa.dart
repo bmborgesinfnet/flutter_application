@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../routes/rotas.dart';
 
 class BotaoAdicionarTarefa extends StatelessWidget {
@@ -7,14 +6,14 @@ class BotaoAdicionarTarefa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     adicionarNovaTarefa() {
-      Navigator.of(context).pushNamed(Rotas.CADASTRAR_TAREFA);
+      Navigator.of(context).pushNamed(Rotas.CREATE_TASK);
     }
 
     return FloatingActionButton.extended(
         onPressed: adicionarNovaTarefa,
-        tooltip: 'Adicionar nova tarefa',
-        label: const Text("Adicionar nova tarefa"),
-    icon: const Icon(Icons.add)
+        backgroundColor: Colors.green,
+        //tooltip: 'Adicionar nova tarefa',
+        label: Icon(Icons.add, color: Colors.white),
     );
   }
 }

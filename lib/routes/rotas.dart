@@ -1,5 +1,5 @@
 class Rotas {
-  static const String LISTAGEM_TAREFAS = "/";
-  static const String CADASTRAR_TAREFA = "/CADASTRAR_TAREFA";
-  static const String EDITAR_TAREFA = "/EDITAR_TAREFA";
+  static const String LIST_TASK = "/";
+  static const String CREATE_TASK = "/CREATE_TASK";
+  static const String EDIT_TASK = "/EDIT_TASK";
 }

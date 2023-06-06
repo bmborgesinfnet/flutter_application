@@ -1,34 +1,35 @@
-import 'package:flutter_application_1/models/product.dart';
-import 'package:flutter_application_1/routes/route_paths.dart';
-import 'package:flutter_application_1/screens/product_show_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-
-
-import 'screens/product_insert_screen.dart';
-import 'screens/product_list_screen.dart';
+import 'package:flutter_application_1/providers/tarefa_provider.dart';
+import 'package:flutter_application_1/views/cadastrar_view.dart';
+import 'package:flutter_application_1/views/editar_view.dart';
+import 'package:provider/provider.dart';
+import 'views/listagem_view.dart';
+import 'routes/rotas.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
-
 class App extends StatelessWidget {
-  Future<void> initializeDefault() async {
-    FirebaseApp app = await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  }
+  const App({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // home: ProductListScreen(_products),
-      routes: {
-        RoutePaths.HOME: (context) => ProductListScreen(),
-        RoutePaths.PRODUCTSHOWSCREEN: (context) => ProductShowScreen(),
-        RoutePaths.PRODUCTINSERTSCREEN: (context) => ProductInsertScreen(),
-      }
+    return ChangeNotifierProvider(
+      create: (context) => TarefaProvider(),
+      child: MaterialApp(
+        title: 'Aplicativo de cadastro de tarefas',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        // home: const Listagem(),
+        debugShowCheckedModeBanner: false,
+        routes: {
+          Rotas.LISTAGEM_TAREFAS: (context) => const Listagem(),
+          Rotas.CADASTRAR_TAREFA: (context) => const Cadastrar(),
+          Rotas.EDITAR_TAREFA: (context) => Editar(),
+        }
+
+      ),
     );
   }
 }

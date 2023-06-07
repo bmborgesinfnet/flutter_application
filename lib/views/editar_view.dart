@@ -71,8 +71,44 @@ class _EditarState extends State<Editar> {
                       ElevatedButton(onPressed: () {
                         Navigator.pop(context);
                       }, child: const Text("Cancelar")),
-                      const SizedBox(width: 16),
-                      ElevatedButton(onPressed: () {
+                    ],),
+                ],)
+          ),
+          floatingActionButton: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton.extended(
+                    onPressed: () {
+                              if (controllerTarefa.text == "") {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      content: const Text("Digite um novo texto para a tarefa antes de editá-la."),
+                                      actions: [TextButton(onPressed: () {
+                                        Navigator.pop(context);
+                                      }, child: const Text("Fechar"))],
+                                    );
+                                  },
+                                );
+                              } else {
+                                Tarefa tarefaEditando = tarefa;
+                                tarefaEditando.nome = controllerTarefa.text;
+                                tarefaEditando.datahora = tarefaProvider.dataHoraAtual;
+                                tarefaEditando.longitude = longitude;
+                                tarefaEditando.latitude = latitude;
+                                tarefaProvider.listaTarefas[index] = tarefaEditando;
+                                Navigator.pushNamedAndRemoveUntil(context, Rotas.LIST_TASK, (route) => false);
+                              }
+                            },
+                    backgroundColor: Colors.green,
+                    //tooltip: 'Adicionar nova tarefa',
+                    label: Icon(Icons.save, color: Colors.white),
+                ),
+                FloatingActionButton.extended(
+                    onPressed: () {
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -96,39 +132,13 @@ class _EditarState extends State<Editar> {
                             );
                           },
                         );
-                      }, child: const Text("Deletar")),
-                      const SizedBox(width: 16),
-                    ],),
-                ],)
-          ),
-          floatingActionButton: FloatingActionButton.extended(
-              onPressed: () {
-                        if (controllerTarefa.text == "") {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: const Text("Digite um novo texto para a tarefa antes de editá-la."),
-                                actions: [TextButton(onPressed: () {
-                                  Navigator.pop(context);
-                                }, child: const Text("Fechar"))],
-                              );
-                            },
-                          );
-                        } else {
-                          Tarefa tarefaEditando = tarefa;
-                          tarefaEditando.nome = controllerTarefa.text;
-                          tarefaEditando.datahora = tarefaProvider.dataHoraAtual;
-                          tarefaEditando.longitude = longitude;
-                          tarefaEditando.latitude = latitude;
-                          tarefaProvider.listaTarefas[index] = tarefaEditando;
-                          Navigator.pushNamedAndRemoveUntil(context, Rotas.LIST_TASK, (route) => false);
-                        }
                       },
-              backgroundColor: Colors.green,
-              //tooltip: 'Adicionar nova tarefa',
-              label: Icon(Icons.save, color: Colors.white),
-          ),
+                    backgroundColor: Colors.red,
+                    //tooltip: 'Adicionar nova tarefa',
+                    label: Icon(Icons.delete, color: Colors.white),
+                )
+              ],
+            ),),
         )
     );
   }

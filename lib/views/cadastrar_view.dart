@@ -31,7 +31,7 @@ class _CadastrarState extends State<Cadastrar> {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: const Text("Crie uma nova tarefa"),
+            title: const Text("Cadastrar nova tarefa"),
             foregroundColor: Colors.white,
           ),
           body:
@@ -47,7 +47,7 @@ class _CadastrarState extends State<Cadastrar> {
                   TextField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'insira a tarefa aqui...',
+                      hintText: 'Descrição nova tarefa',
                     ),
                     controller: controllerTarefa,
                   ),
@@ -62,7 +62,7 @@ class _CadastrarState extends State<Cadastrar> {
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     ElevatedButton(onPressed: () {
                       Navigator.pop(context);
-                    }, child: const Text("Cancelar")),
+                    }, child: const Text("Cancelar",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
                     const SizedBox(width: 16),
                   ],)
                 ],)

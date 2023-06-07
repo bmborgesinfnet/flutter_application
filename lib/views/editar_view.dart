@@ -94,12 +94,12 @@ class _EditarState extends State<Editar> {
                                   },
                                 );
                               } else {
-                                Tarefa tarefaEditando = tarefa;
-                                tarefaEditando.nome = controllerTarefa.text;
-                                tarefaEditando.datahora = tarefaProvider.dataHoraAtual;
-                                tarefaEditando.longitude = longitude;
-                                tarefaEditando.latitude = latitude;
-                                tarefaProvider.listaTarefas[index] = tarefaEditando;
+                                Tarefa tarefaEditada = tarefa;
+                                tarefaEditada.nome = controllerTarefa.text;
+                                tarefaEditada.datahora = tarefaProvider.dataHoraAtual;
+                                tarefaEditada.longitude = longitude;
+                                tarefaEditada.latitude = latitude;
+                                tarefaProvider.listaTarefas[index] = tarefaEditada;
                                 Navigator.pushNamedAndRemoveUntil(context, Rotas.LIST_TASK, (route) => false);
                               }
                             },
